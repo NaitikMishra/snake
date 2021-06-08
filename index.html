@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nokia snake game</title>
+</head>
+<body>
+    <div class="keypress hide">
+        <div class="up" onclick="emit(38)">&#8593;</div>
+        <div class="right" onclick="emit(39)">&#8594;</div>
+        <div class="left" onclick="emit(37)">&#8592;</div>
+        <div class="down" onclick="emit(40)">&#8595;</div>
+    </div>
+    <div class="banner" id="selector">
+        <div>
+            Time :<span id="time">0</span>
+        </div>
+        <div>Naitik's game</div>
+        <div>
+            Score :<span id="score">0</span>
+        </div>
+        <div class="touch off" onclick="touch(this)">touch</div>
+    </div>
+    <canvas id="main" height="760" width="1536"></canvas>
+    <script src="./snake.min.js"></script>
+</body>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: black
+    }
+
+    .banner {
+        text-align: center;
+        color: #fff;
+        background: #3f51b5;
+        line-height: 29px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        font-family: monospace;
+        height: 30px;
+        opacity: .4;
+        display: flex;
+        transition: .5s
+    }
+
+    .banner:hover {
+        opacity: 1
+    }
+
+    div#selector>div {
+        flex-basis: 30%
+    }
+
+    @keyframes diss {
+        from {
+            opacity: 1
+        }
+
+        to {
+            opacity: 0
+        }
+    }
+
+    .keypress>div {
+        border: dashed 3px #fff;
+        height: 48%;
+        width: 48%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        font-size: -webkit-xxx-large;
+        font-weight: 900;
+        color: #fff;
+        transition: .5s;
+        opacity: .1;
+        border-radius: 7px
+    }
+
+    .keypress {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        opacity: 1;
+        user-select: none
+    }
+
+    .keypress>div:hover {
+        opacity: 1
+    }
+
+    .touch {
+        background: greenyellow
+    }
+
+    .off {
+        background: red
+    }
+
+    .hide {
+        opacity: 0
+    }
+</style>
+</html>
